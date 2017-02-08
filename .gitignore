@@ -110,3 +110,7 @@ ipch/
 *.cachefile
 *.VC.db
 *.VC.VC.opendb
+
+#big files
+*.mp4
+*.m4v

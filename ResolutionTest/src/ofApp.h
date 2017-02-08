@@ -3,6 +3,10 @@
 #include "ofMain.h"
 #include "ofxGui.h"
 
+#define FOURKWIDTH 3840
+#define FOURKHEIGHT 2160
+
+
 class ofApp : public ofBaseApp{
 
 	public:
@@ -23,5 +27,16 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
 		ofVideoPlayer player;
-		
+
+		ofShader flipWindow;
+
+		ofxPanel gui;
+
+		ofParameter<float> x;
+		ofParameter<float> y;
+		ofParameter<float> width;
+		ofParameter<float> height;
+		ofParameter<float> diagonal;
+		ofParameter<float> screenWidth;
+		ofParameter<float> screenHeight;
 };
