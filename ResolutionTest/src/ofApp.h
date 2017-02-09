@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxGui.h"
+#include "ofxNestedFileLoader.h"
 
 #define FOURKWIDTH 3840
 #define FOURKHEIGHT 2160
@@ -39,4 +40,8 @@ class ofApp : public ofBaseApp{
 		ofParameter<float> diagonal;
 		ofParameter<float> screenWidth;
 		ofParameter<float> screenHeight;
+		ofParameter<bool> videoOn;
+		ofParameter<int> imageIndex;
+
+		vector<ofImage> imgs;
 };

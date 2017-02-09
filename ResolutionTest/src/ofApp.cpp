@@ -12,6 +12,14 @@ void ofApp::setup(){
 	player.play();
 	player.setLoopState(OF_LOOP_NORMAL);
 
+	ofxNestedFileLoader loader;
+	vector<string> imageNames = loader.load("images");
+	for (int i = 0; i < imageNames.size(); i++) {
+		ofImage img;
+		img.load(imageNames[i]);
+		imgs.push_back(img);
+	}
+
 	gui.setup();
 	gui.add(x.set("X", 0.0, 0.0, FOURKWIDTH));
 	gui.add(y.set("Y", 0.0, 0.0, FOURKHEIGHT));
@@ -20,15 +28,22 @@ void ofApp::setup(){
 	gui.add(diagonal.set("Diagonal ''", 86, 0, 100));
 	gui.add(screenWidth.set("Screen Width ''", 0, 0, 100));
 	gui.add(screenHeight.set("Screen Height ''", 0, 0, 100));
+	gui.add(videoOn.set("VideoOn", false));
+	gui.add(imageIndex.set("Image Index", 0, 0, imgs.size()-1));
 
 	flipWindow.load("shaders/flipWindow");
+
+
 
 
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-	player.update();
+	if (videoOn) {
+		player.update();
+	}
+
 	if (x + width > ofGetWidth()) {
 		width = ofGetWidth() - x;
 	}
@@ -43,10 +58,15 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 	flipWindow.begin();
-	flipWindow.setUniformTexture("diffuseTexture", player, 0);
 	flipWindow.setUniform2f("cropPos", x, y);
 	flipWindow.setUniform2f("cropResolution", width, height);
-	flipWindow.setUniform2f("vidResolution", player.getWidth(), player.getHeight());
+	if (videoOn) {
+		flipWindow.setUniformTexture("diffuseTexture", player, 0);
+		flipWindow.setUniform2f("vidResolution", player.getWidth(), player.getHeight());
+	} else {
+		flipWindow.setUniformTexture("diffuseTexture", imgs[imageIndex], 0);
+		flipWindow.setUniform2f("vidResolution", imgs[imageIndex].getWidth(), imgs[imageIndex].getHeight());
+	}
 	flipWindow.setUniform2f("windowResolution", ofGetWidth(), ofGetHeight());
 	ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
 	flipWindow.end();
