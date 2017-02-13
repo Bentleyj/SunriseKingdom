@@ -7,14 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14384B581E51CE12003AA71D /* video4K.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 14384B571E51CE12003AA71D /* video4K.mp4 */; };
+		14384B5A1E51FDC7003AA71D /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 14384B591E51FDC7003AA71D /* Shaders.metal */; };
+		14384B5C1E522679003AA71D /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14384B5B1E522679003AA71D /* Renderer.swift */; };
 		1A44933B1E4F69270018FD02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A44933A1E4F69270018FD02 /* AppDelegate.swift */; };
 		1A44933D1E4F69270018FD02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A44933C1E4F69270018FD02 /* ViewController.swift */; };
 		1A44933F1E4F69270018FD02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A44933E1E4F69270018FD02 /* Assets.xcassets */; };
 		1A4493421E4F69270018FD02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4493401E4F69270018FD02 /* Main.storyboard */; };
 		1A44934D1E4F69270018FD02 /* _KTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A44934C1E4F69270018FD02 /* _KTestTests.swift */; };
 		1A4493581E4F69270018FD02 /* _KTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4493571E4F69270018FD02 /* _KTestUITests.swift */; };
-		1A4493661E4FD71F0018FD02 /* Warerfall_Particles2.mov in Resources */ = {isa = PBXBuildFile; fileRef = 1A4493651E4FD71F0018FD02 /* Warerfall_Particles2.mov */; };
-		1A4493681E4FDA650018FD02 /* video4K.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1A4493671E4FDA650018FD02 /* video4K.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14384B571E51CE12003AA71D /* video4K.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video4K.mp4; sourceTree = "<group>"; };
+		14384B591E51FDC7003AA71D /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		14384B5B1E522679003AA71D /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		1A4493371E4F69270018FD02 /* 4KTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 4KTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A44933A1E4F69270018FD02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A44933C1E4F69270018FD02 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,8 +51,6 @@
 		1A4493531E4F69270018FD02 /* 4KTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 4KTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A4493571E4F69270018FD02 /* _KTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _KTestUITests.swift; sourceTree = "<group>"; };
 		1A4493591E4F69270018FD02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1A4493651E4FD71F0018FD02 /* Warerfall_Particles2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Warerfall_Particles2.mov; sourceTree = "<group>"; };
-		1A4493671E4FDA650018FD02 /* video4K.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video4K.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +81,7 @@
 		1A44932E1E4F69270018FD02 = {
 			isa = PBXGroup;
 			children = (
-				1A4493671E4FDA650018FD02 /* video4K.mp4 */,
-				1A4493651E4FD71F0018FD02 /* Warerfall_Particles2.mov */,
+				14384B571E51CE12003AA71D /* video4K.mp4 */,
 				1A4493391E4F69270018FD02 /* 4KTest */,
 				1A44934B1E4F69270018FD02 /* 4KTestTests */,
 				1A4493561E4F69270018FD02 /* 4KTestUITests */,
@@ -103,8 +104,10 @@
 			children = (
 				1A44933A1E4F69270018FD02 /* AppDelegate.swift */,
 				1A44933C1E4F69270018FD02 /* ViewController.swift */,
+				14384B5B1E522679003AA71D /* Renderer.swift */,
 				1A44933E1E4F69270018FD02 /* Assets.xcassets */,
 				1A4493401E4F69270018FD02 /* Main.storyboard */,
+				14384B591E51FDC7003AA71D /* Shaders.metal */,
 				1A4493431E4F69270018FD02 /* Info.plist */,
 			);
 			path = 4KTest;
@@ -238,8 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A4493681E4FDA650018FD02 /* video4K.mp4 in Resources */,
-				1A4493661E4FD71F0018FD02 /* Warerfall_Particles2.mov in Resources */,
+				14384B581E51CE12003AA71D /* video4K.mp4 in Resources */,
 				1A44933F1E4F69270018FD02 /* Assets.xcassets in Resources */,
 				1A4493421E4F69270018FD02 /* Main.storyboard in Resources */,
 			);
@@ -266,6 +268,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14384B5C1E522679003AA71D /* Renderer.swift in Sources */,
+				14384B5A1E51FDC7003AA71D /* Shaders.metal in Sources */,
 				1A44933D1E4F69270018FD02 /* ViewController.swift in Sources */,
 				1A44933B1E4F69270018FD02 /* AppDelegate.swift in Sources */,
 			);
@@ -412,6 +416,7 @@
 				DEVELOPMENT_TEAM = 7SF8EEGZ33;
 				INFOPLIST_FILE = 4KTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "Bentley.-KTest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -426,6 +431,7 @@
 				DEVELOPMENT_TEAM = 7SF8EEGZ33;
 				INFOPLIST_FILE = 4KTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "Bentley.-KTest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -513,6 +519,7 @@
 				1A44935E1E4F69270018FD02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1A44935F1E4F69270018FD02 /* Build configuration list for PBXNativeTarget "4KTestTests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +528,7 @@
 				1A4493611E4F69270018FD02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1A4493621E4F69270018FD02 /* Build configuration list for PBXNativeTarget "4KTestUITests" */ = {
 			isa = XCConfigurationList;
@@ -529,6 +537,7 @@
 				1A4493641E4F69270018FD02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16D32" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.AVKitIBPlugin" version="11201"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -687,23 +687,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <avPlayerView misplaced="YES" controlsStyle="none" translatesAutoresizingMaskIntoConstraints="NO" id="SZc-ch-6Lv">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="3840" id="0Ws-FN-rGR"/>
-                                    <constraint firstAttribute="height" constant="2160" id="5oM-Ob-Woi"/>
-                                    <constraint firstAttribute="width" secondItem="SZc-ch-6Lv" secondAttribute="height" multiplier="16:9" id="lz3-7T-Nje"/>
-                                </constraints>
-                            </avPlayerView>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oNA-yZ-vXM">
+                                <rect key="frame" x="240" y="260" width="0.0" height="0.0"/>
+                            </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="SZc-ch-6Lv" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="9PZ-Hd-YpV"/>
-                            <constraint firstItem="SZc-ch-6Lv" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="csF-l0-eR6"/>
+                            <constraint firstItem="oNA-yZ-vXM" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="lDf-nU-Evb"/>
+                            <constraint firstItem="oNA-yZ-vXM" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="10" id="thD-3e-nve"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="playWindow" destination="SZc-ch-6Lv" id="eiO-04-k6U"/>
-                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
