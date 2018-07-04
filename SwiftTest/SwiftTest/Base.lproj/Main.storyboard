@@ -13,11 +13,11 @@
                 <application id="hnw-xV-0zn" sceneMemberID="viewController">
                     <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
                         <items>
-                            <menuItem title="4KTest" id="1Xt-HY-uBw">
+                            <menuItem title="Test" id="1Xt-HY-uBw">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="4KTest" systemMenu="apple" id="uQy-DD-JDr">
+                                <menu key="submenu" title="Test" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
-                                        <menuItem title="About 4KTest" id="5kV-Vb-QxS">
+                                        <menuItem title="About Test" id="5kV-Vb-QxS">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
@@ -31,7 +31,7 @@
                                             <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
-                                        <menuItem title="Hide 4KTest" keyEquivalent="h" id="Olw-nP-bQN">
+                                        <menuItem title="Hide Test" keyEquivalent="h" id="Olw-nP-bQN">
                                             <connections>
                                                 <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
                                             </connections>
@@ -49,7 +49,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                                        <menuItem title="Quit 4KTest" keyEquivalent="q" id="4sb-4s-VLi">
+                                        <menuItem title="Quit Test" keyEquivalent="q" id="4sb-4s-VLi">
                                             <connections>
                                                 <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
                                             </connections>
@@ -642,7 +642,7 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
                                     <items>
-                                        <menuItem title="4KTest Help" keyEquivalent="?" id="FKE-Sm-Kum">
+                                        <menuItem title="Test Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                             <connections>
                                                 <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
                                             </connections>
@@ -656,7 +656,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="_KTest" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="SwiftTest" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
@@ -682,28 +682,31 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="_KTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl" customClass="MetalView" customModule="_KTest" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="633" height="363"/>
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="SwiftTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <avPlayerView fixedFrame="YES" controlsStyle="inline" translatesAutoresizingMaskIntoConstraints="NO" id="JQu-Wy-mG8">
-                                <rect key="frame" x="0.0" y="93" width="480" height="270"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <avPlayerView controlsStyle="inline" translatesAutoresizingMaskIntoConstraints="NO" id="zCJ-ur-8aP">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                             </avPlayerView>
                         </subviews>
-                        <connections>
-                            <outlet property="playerView" destination="JQu-Wy-mG8" id="s4t-1h-ARh"/>
-                        </connections>
+                        <constraints>
+                            <constraint firstItem="zCJ-ur-8aP" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="ByV-8X-sV7"/>
+                            <constraint firstAttribute="bottom" secondItem="zCJ-ur-8aP" secondAttribute="bottom" id="HXm-T9-EgY"/>
+                            <constraint firstAttribute="trailing" secondItem="zCJ-ur-8aP" secondAttribute="trailing" id="IUw-6b-pdC"/>
+                            <constraint firstItem="zCJ-ur-8aP" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="JBD-5l-aT3"/>
+                            <constraint firstItem="zCJ-ur-8aP" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="fJc-iE-ruY"/>
+                            <constraint firstItem="zCJ-ur-8aP" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="uUB-a5-Pso"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="metalView" destination="m2S-Jp-Qdl" id="yss-ES-iZ4"/>
-                        <outlet property="playerView" destination="JQu-Wy-mG8" id="Edx-HJ-htw"/>
+                        <outlet property="playerView" destination="zCJ-ur-8aP" id="JeZ-c7-Vnq"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="151.5" y="701.5"/>
+            <point key="canvasLocation" x="75" y="655"/>
         </scene>
     </scenes>
 </document>

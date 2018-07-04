@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  4KTest
+//  SwiftTest
 //
-//  Created by James Bentley on 2/11/17.
+//  Created by cafe on 14/02/2017.
 //  Copyright © 2017 Hellicar Studio. All rights reserved.
 //
 
@@ -11,16 +11,25 @@ import AVKit
 import AVFoundation
 
 class ViewController: NSViewController {
-        
+    
     @IBOutlet weak var playerView: AVPlayerView!
-    @IBOutlet var metalView: MetalView!
-    var player: AVPlayer!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
         
-        metalView.onViewDidLoad()
+        guard let path = Bundle.main.url(forResource: "video4K", withExtension: "mp4") else {
+            debugPrint("video not loaded")
+            return
+        }
+        
+        let player = AVPlayer(url: path)
+        
+        playerView.player = player
+        
+        player.play()
+        
     }
 
     override var representedObject: Any? {
@@ -28,5 +37,7 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
+
+
 }
 

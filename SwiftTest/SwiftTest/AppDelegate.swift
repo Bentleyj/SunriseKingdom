@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  4KTest
+//  SwiftTest
 //
-//  Created by James Bentley on 2/11/17.
+//  Created by cafe on 14/02/2017.
 //  Copyright © 2017 Hellicar Studio. All rights reserved.
 //
 
@@ -13,6 +13,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        
+
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

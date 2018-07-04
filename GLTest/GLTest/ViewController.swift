@@ -1,26 +1,23 @@
 //
 //  ViewController.swift
-//  4KTest
+//  GLTest
 //
-//  Created by James Bentley on 2/11/17.
+//  Created by cafe on 15/02/2017.
 //  Copyright © 2017 Hellicar Studio. All rights reserved.
 //
 
 import Cocoa
-import AVKit
-import AVFoundation
+//import AVFoundation
+//import AVKit
 
 class ViewController: NSViewController {
-        
-    @IBOutlet weak var playerView: AVPlayerView!
-    @IBOutlet var metalView: MetalView!
-    var player: AVPlayer!
-
+    
+    @IBOutlet weak var swiftOpenGLView: SwiftOpenGLView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        metalView.onViewDidLoad()
     }
 
     override var representedObject: Any? {

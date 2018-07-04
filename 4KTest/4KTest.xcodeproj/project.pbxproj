@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14025EF91E536A7600C1C83A /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14025EF81E536A7600C1C83A /* MetalView.swift */; };
+		14025EFB1E53863200C1C83A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14025EFA1E53863200C1C83A /* ViewController.swift */; };
 		14384B581E51CE12003AA71D /* video4K.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 14384B571E51CE12003AA71D /* video4K.mp4 */; };
 		14384B5A1E51FDC7003AA71D /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 14384B591E51FDC7003AA71D /* Shaders.metal */; };
-		14384B5C1E522679003AA71D /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14384B5B1E522679003AA71D /* Renderer.swift */; };
 		1A44933B1E4F69270018FD02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A44933A1E4F69270018FD02 /* AppDelegate.swift */; };
-		1A44933D1E4F69270018FD02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A44933C1E4F69270018FD02 /* ViewController.swift */; };
 		1A44933F1E4F69270018FD02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A44933E1E4F69270018FD02 /* Assets.xcassets */; };
 		1A4493421E4F69270018FD02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4493401E4F69270018FD02 /* Main.storyboard */; };
 		1A44934D1E4F69270018FD02 /* _KTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A44934C1E4F69270018FD02 /* _KTestTests.swift */; };
@@ -36,12 +36,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14025EF81E536A7600C1C83A /* MetalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
+		14025EFA1E53863200C1C83A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		14384B571E51CE12003AA71D /* video4K.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video4K.mp4; sourceTree = "<group>"; };
 		14384B591E51FDC7003AA71D /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
-		14384B5B1E522679003AA71D /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		1A4493371E4F69270018FD02 /* 4KTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 4KTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A44933A1E4F69270018FD02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1A44933C1E4F69270018FD02 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1A44933E1E4F69270018FD02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A4493411E4F69270018FD02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1A4493431E4F69270018FD02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -103,8 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				1A44933A1E4F69270018FD02 /* AppDelegate.swift */,
-				1A44933C1E4F69270018FD02 /* ViewController.swift */,
-				14384B5B1E522679003AA71D /* Renderer.swift */,
+				14025EF81E536A7600C1C83A /* MetalView.swift */,
+				14025EFA1E53863200C1C83A /* ViewController.swift */,
 				1A44933E1E4F69270018FD02 /* Assets.xcassets */,
 				1A4493401E4F69270018FD02 /* Main.storyboard */,
 				14384B591E51FDC7003AA71D /* Shaders.metal */,
@@ -268,9 +268,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14384B5C1E522679003AA71D /* Renderer.swift in Sources */,
 				14384B5A1E51FDC7003AA71D /* Shaders.metal in Sources */,
-				1A44933D1E4F69270018FD02 /* ViewController.swift in Sources */,
+				14025EF91E536A7600C1C83A /* MetalView.swift in Sources */,
+				14025EFB1E53863200C1C83A /* ViewController.swift in Sources */,
 				1A44933B1E4F69270018FD02 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
