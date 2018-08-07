@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxNestedFileLoader.h"
+#include "ofxGui.h"
 
 class ofApp : public ofBaseApp{
 
@@ -24,6 +25,8 @@ class ofApp : public ofBaseApp{
         void organizeImages(string root);
         void renameImages(vector<string> paths);
     
+        ofxPanel gui;
+        ofParameter<float> middleLeft, middleRight;
         vector<string> imgPaths;
         ofFbo buffer;
         ofImage img;

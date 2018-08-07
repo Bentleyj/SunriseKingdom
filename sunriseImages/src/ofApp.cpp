@@ -2,33 +2,46 @@
 
 //--------------------------------------------------------------
 bool compareImagePaths(string p1, string p2) {
-    vector<string> s1 = ofSplitString(p1, "/");
-    vector<string> s2 = ofSplitString(p2, "/");
-    int year1 = ofToInt(s1[1]);
-    int year2 = ofToInt(s2[1]);
-    int month1 = ofToInt(s1[2]);
-    int month2 = ofToInt(s2[2]);
-    vector<string> s12 = ofSplitString(s1[4], "-");
-    vector<string> s22 = ofSplitString(s2[4], "-");
-    int day1 = ofToInt(s12[0]);
-    int day2 = ofToInt(s22[0]);
-    vector<string> s13 = ofSplitString(s12[1], ".");
-    vector<string> s23 = ofSplitString(s22[1], ".");
-    int frame1 = ofToInt(s13[0]);
-    int frame2 = ofToInt(s23[0]);
-    
-    if(year1 == year2) {
-        if(month1 == month2) {
+    vector<string> file = ofSplitString(p1, "/");
+    vector<string> date = ofSplitString(file[1], ".");
+    vector<string> dateSplit = ofSplitString(date[0], "-");
+    float yea1 = ofToFloat(dateSplit[0]);
+    float mon1 = ofToFloat(dateSplit[1]);
+    float day1 = ofToFloat(dateSplit[2]);
+    float hou1 = ofToFloat(dateSplit[3]);
+    float min1 = ofToFloat(dateSplit[4]);
+    float sec1 = ofToFloat(dateSplit[5]);
+
+    file = ofSplitString(p1, "/");
+    date = ofSplitString(file[1], ".");
+    dateSplit = ofSplitString(date[0], "-");
+    float yea2 = ofToFloat(dateSplit[0]);
+    float mon2 = ofToFloat(dateSplit[1]);
+    float day2 = ofToFloat(dateSplit[2]);
+    float hou2 = ofToFloat(dateSplit[3]);
+    float min2 = ofToFloat(dateSplit[4]);
+    float sec2 = ofToFloat(dateSplit[5]);
+
+    if(yea1 == yea1) {
+        if(mon1 == mon2) {
             if(day1 == day2) {
-                return frame1 < frame2;
+                if(hou1 == hou2) {
+                    if(min1 == min2) {
+                        return sec1 < sec2;
+                    } else {
+                        return min1 < min2;
+                    }
+                } else {
+                    return hou1 < hou2;
+                }
             } else {
-                return (day1 < day2);
+                return day1 < day2;
             }
         } else {
-            return (month1 < month2);
+            return mon1 < mon2;
         }
     } else {
-        return (year1 < year2);
+        return yea1 < yea2;
     }
 }
 
@@ -36,66 +49,17 @@ bool compareImagePaths(string p1, string p2) {
 void ofApp::setup(){
     //organizeImages("Images"); Already done!
     ofxNestedFileLoader loader;
-    imgPaths = loader.load("Large");
+    imgPaths = loader.load("Brooklyn");
     cout<<"Total Images: " <<imgPaths.size()<<endl;
     sort(imgPaths.begin(), imgPaths.end(),compareImagePaths);
-//    renameImages(imgPaths);
     y = x = 0;
     ofSetBackgroundAuto(false);
-}
+    
+    string settingsPath = "settings/settings.xml";
+    gui.setup("Settings", settingsPath);
+    gui.add(middleLeft.set("MidPoint Left", 6900, 0, 15360/2));
+    gui.add(middleRight.set("MidPoint Right", 6900, 15360/2, 15360));
 
-
-
-//--------------------------------------------------------------
-void ofApp::renameImages(vector<string> paths) {
-    for(int i = 0; i < paths.size(); i++) {
-        ofFile f = ofFile(imgPaths[i], ofFile::ReadOnly);
-        string n = f.getFileName();
-        vector<string> s = ofSplitString(n, "-");
-        if(s.size() < 2) {
-            string newN = f.getEnclosingDirectory() + "New/" + "0-" + s[0];
-            cout<<newN<<endl;
-            f.renameTo(newN, true, true);
-        } else {
-            vector<string> s2 = ofSplitString(s[1], ".");
-            string newN = f.getEnclosingDirectory() + "New/" + s2[0] + "-" + s[0] + ".jpg";
-            cout<<newN<<endl;
-            f.renameTo(newN, true, true);
-        }
-    }
-}
-
-
-//--------------------------------------------------------------
-void ofApp::organizeImages(string root) {
-    ofxNestedFileLoader loader;
-    cout<<"Loading all image paths"<<endl;
-    vector<string> imgPaths = loader.load(root);
-    cout<<"Image Paths Loaded"<<endl;
-    for(int i = 0; i < imgPaths.size(); i++) {
-        ofFile f = ofFile(imgPaths[i], ofFile::ReadOnly);
-        string n = f.getFileName();
-        if(n.find("768x") != string::npos) {
-            string encDir = f.getEnclosingDirectory();
-            int p = encDir.find("Images/");
-            string newPos = encDir.substr(0, p) + "Small/" + encDir.substr(p) + n;
-            cout<<newPos<<endl;
-            f.moveTo(newPos);
-        } else if(n.find("1920x") != string::npos) {
-            string encDir = f.getEnclosingDirectory();
-            int p = encDir.find("Images/");
-            string newPos = encDir.substr(0, p) + "Medium/" + encDir.substr(p) + n;
-            cout<<newPos<<endl;
-            f.moveTo(newPos);
-        } else {
-            string encDir = f.getEnclosingDirectory();
-            int p = encDir.find("Images/");
-            string newPos = encDir.substr(0, p) + "Large/" + encDir.substr(p) + n;
-            cout<<newPos<<endl;
-            f.moveTo(newPos);
-        }
-    }
-    cout<<"Done!"<<endl;
 }
 
 //--------------------------------------------------------------
@@ -107,10 +71,14 @@ void ofApp::update(){
 void ofApp::draw(){
     img.load(imgPaths[index]);
     cout<<"Loading Image "<<index<<endl;
-    int width = 3840;
-    int height = 600;
-    float scale = 1;
-    img.draw(0, 0, width / scale, height / scale);
+    int width = 15360;
+    int height = 1920;
+    float scale = 4;
+    
+    //img.drawSubsection(0, 0, middleLeft / scale, 1920 / scale, 160, 0, middleLeft-160, 1920);
+    //img.drawSubsection(middleLeft / scale, 0, (middleRight - middleLeft) / scale, 1920 / scale, 8270, 0, 15360-160, 1920);
+
+    //img.draw(0, 0, width / scale, height / scale);
     index++;
     if(index == imgPaths.size()) {
         index = 0;
