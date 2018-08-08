@@ -53,7 +53,7 @@ void ofApp::setup(){
     cout<<"Total Images: " <<imgPaths.size()<<endl;
     sort(imgPaths.begin(), imgPaths.end(),compareImagePaths);
     y = x = 0;
-    ofSetBackgroundAuto(false);
+//    ofSetBackgroundAuto(false);
     
     string settingsPath = "settings/settings.xml";
     gui.setup("Settings", settingsPath);
@@ -75,14 +75,38 @@ void ofApp::draw(){
     int height = 1920;
     float scale = 4;
     
-    //img.drawSubsection(0, 0, middleLeft / scale, 1920 / scale, 160, 0, middleLeft-160, 1920);
-    //img.drawSubsection(middleLeft / scale, 0, (middleRight - middleLeft) / scale, 1920 / scale, 8270, 0, 15360-160, 1920);
+    float outX1 = 0;
+    float outY1 = 0;
+    float outWidth1 = middleLeft / scale;
+    float outHeight1 = 1920 / scale;
+    
+    float inX1 = 160;
+    float inY1 = 0;
+    float inWidth1 = middleLeft-160;
+    float inHeight1 = 1920;
+    
+    float inX2 = middleRight;
+    float inY2 = 0;
+    float inWidth2 = middleRight-160;
+    float inHeight2 = 1920;
+    
+    float outX2 = outWidth1;
+    float outY2 = 0;
+    float outWidth2 = inWidth2 / scale;
+    float outHeight2 = 1920 / scale;
+    
+
+    
+    img.drawSubsection(outX1, outY1, outWidth1, outHeight1, inX1, inY1, inWidth1, inHeight1);
+    img.drawSubsection(outX2, outY2, outWidth2, outHeight2, inX2, inY2, inWidth2, inHeight2);
 
     //img.draw(0, 0, width / scale, height / scale);
     index++;
     if(index == imgPaths.size()) {
         index = 0;
     }
+    
+    gui.draw();
 }
 
 //--------------------------------------------------------------
