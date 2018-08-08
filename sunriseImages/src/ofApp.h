@@ -24,12 +24,14 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
         void organizeImages(string root);
         void renameImages(vector<string> paths);
-    
+
         ofxPanel gui;
         ofParameter<float> middleLeft, middleRight;
         vector<string> imgPaths;
         ofFbo buffer;
         ofImage img;
+        ofImage screen;
+        bool takeShots;
         int x, y, index;
 		
 };

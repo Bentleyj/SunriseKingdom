@@ -1,6 +1,22 @@
 #include "ofApp.h"
 
 //--------------------------------------------------------------
+bool compareShortImagePaths(string p1, string p2) {
+    vector<string> file = ofSplitString(p1, "/");
+    vector<string> date = ofSplitString(file[1], ".");
+    string s = date[0].erase(0, 3);
+    int i1 = ofToInt(s);
+
+    file = ofSplitString(p2, "/");
+    date = ofSplitString(file[1], ".");
+    s = date[0].erase(0, 3);
+    int i2 = ofToInt(s);
+    
+    return i1 < i2;
+}
+
+
+//--------------------------------------------------------------
 bool compareImagePaths(string p1, string p2) {
     vector<string> file = ofSplitString(p1, "/");
     vector<string> date = ofSplitString(file[1], ".");
@@ -47,33 +63,40 @@ bool compareImagePaths(string p1, string p2) {
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    //organizeImages("Images"); Already done!
     ofxNestedFileLoader loader;
-    imgPaths = loader.load("Brooklyn");
+    imgPaths = loader.load("BrooklynSmall");
     cout<<"Total Images: " <<imgPaths.size()<<endl;
-    sort(imgPaths.begin(), imgPaths.end(),compareImagePaths);
+    sort(imgPaths.begin(), imgPaths.end(), compareShortImagePaths);
     y = x = 0;
-//    ofSetBackgroundAuto(false);
     
     string settingsPath = "settings/settings.xml";
     gui.setup("Settings", settingsPath);
     gui.add(middleLeft.set("MidPoint Left", 6900, 0, 15360/2));
     gui.add(middleRight.set("MidPoint Right", 6900, 15360/2, 15360));
+    gui.loadFromFile(settingsPath);
+    
+    gui.setPosition(20, 1940);
+    
+    takeShots = false;
 
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+    img.load(imgPaths[index]);
+    index++;
+    if(index == imgPaths.size()) {
+        index = 0;
+        takeShots = false;
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    img.load(imgPaths[index]);
     cout<<"Loading Image "<<index<<endl;
     int width = 15360;
     int height = 1920;
-    float scale = 4;
+    float scale = 2;
     
     float outX1 = 0;
     float outY1 = 0;
@@ -99,12 +122,17 @@ void ofApp::draw(){
     
     img.drawSubsection(outX1, outY1, outWidth1, outHeight1, inX1, inY1, inWidth1, inHeight1);
     img.drawSubsection(outX2, outY2, outWidth2, outHeight2, inX2, inY2, inWidth2, inHeight2);
+    
+    if(takeShots) {
+        screen.grabScreen(0, 0, ofGetWidth(), outHeight1);
+        screen.update();
+        screen.save("BrooklynSmall/img" + ofToString(index) + ".png");
+    }
 
     //img.draw(0, 0, width / scale, height / scale);
-    index++;
-    if(index == imgPaths.size()) {
-        index = 0;
-    }
+
+
+
     
     gui.draw();
 }
